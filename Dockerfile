@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install
-
-RUN npm run test
+RUN apt-get install --no-install-recommends apt-utils --yes \
+    && apt-get install --no-install-recommends npm --yes
 
 CMD ['node','app.js']
