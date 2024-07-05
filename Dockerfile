@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y nodejs=8.17.0-1nodesource1
+RUN npm install
+
+RUN npm run test
+
+EXPOSE 8000
 
 CMD ['node','app.js']
